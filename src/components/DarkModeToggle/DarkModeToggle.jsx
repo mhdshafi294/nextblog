@@ -12,7 +12,7 @@ const DarkModeToggle = () => {
       <div className={styles.icon}>🔆</div>
       <div
         className={styles.ball}
-        style={mode === "light" ? { left: "3px" } : { left: "20px" }}
+        style={mode === "light" ? { left: "3px" } : { left: "23px" }}
       />
     </div>
   );
