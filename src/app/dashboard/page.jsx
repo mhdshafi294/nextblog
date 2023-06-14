@@ -5,9 +5,9 @@ import useSWR from "swr";
 import { useSession } from "next-auth/react";
 // import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
-
   //OLD WAY TO FETCH DATA
 
   // const [data, setData] = useState([]);
@@ -34,16 +34,28 @@ const Dashboard = () => {
   // }, []);
 
   const session = useSession();
+
+  const router = useRouter();
+
   console.log(session);
 
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-  const { data, error, isLoading } = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher)
+  const { data, error, isLoading } = useSWR(
+    "https://jsonplaceholder.typicode.com/posts",
+    fetcher
+  );
 
-  return(
-    <div className={styles.container}>Dashboard</div>
-  )
+  if (session.status === "loading") {
+    return <p>Loading...</p>;
+  }
+  if (session.status === "unauthenticated") {
+    router.push("/dashboard/login");
+  }
 
+  if (session.status === "authenticated") {
+    return <div className={styles.container}>Dashboard</div>;
+  }
 };
 
 export default Dashboard;
