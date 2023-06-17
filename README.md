@@ -1,4 +1,4 @@
-###This is a project with many aspects actually have a total learning purpose of using the main features of Nesx Js 13. It does not have a fancy UI, but the UI is acceptable.
+##This is a project with many aspects actually have a total learning purpose of using the main features of Nesx Js 13. It does not have a fancy UI, but the UI is acceptable.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
